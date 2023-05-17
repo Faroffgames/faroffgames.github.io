@@ -35,15 +35,8 @@
 
     // Disable text highlighting
     document.addEventListener('selectstart', event => event.preventDefault());
-
-    // Disable clipboard copying
-    document.addEventListener('copy', event => {
-      event.preventDefault();
-      alert('Copying content from this page is not allowed');
-    });
-  </script>
-
-  <script> window.addEventListener('resize', function() {
+    
+    window.addEventListener('resize', function() {
     const borderWidth = window.outerWidth - window.innerWidth;
     const topBorderWidth = window.outerHeight - window.innerHeight - borderWidth;
     const bottomBorderWidth = borderWidth - topBorderWidth;
@@ -53,7 +46,15 @@
       location.replace("https://www.far0ffgames.github.io/404.html"); //trust it takes to 404
     }
   });
-    </script>
+
+    // Disable clipboard copying
+    document.addEventListener('copy', event => {
+      event.preventDefault();
+      alert('Copying content from this page is not allowed');
+    });
+  </script>
+
+  
 </head>
 
 

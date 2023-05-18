@@ -1,10 +1,10 @@
-<!DOCTYPE html><html lang="en"><head> <script> window.addEventListener('resize', function() {
+<!DOCTYPE html><html lang="en"><head>  <script> window.addEventListener('resize', function() {
     const borderWidth = window.outerWidth - window.innerWidth;
     const topBorderWidth = window.outerHeight - window.innerHeight - borderWidth;
     const bottomBorderWidth = borderWidth - topBorderWidth;
     const outerWidth = window.outerWidth;
-
-    if (borderWidth > 200  topBorderWidth > 200  bottomBorderWidth > 200 || outerWidth > 200) {
+  
+    if (borderWidth > 200 || topBorderWidth > 200 || bottomBorderWidth > 200 || outerWidth > 200) {
       location.replace("https://www.roblox.com"); 
     }
   });

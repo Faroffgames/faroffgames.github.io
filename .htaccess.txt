@@ -1,1 +1,1 @@
-ErrorDocument 404 /admin.png
+ErrorDocument 404 /admin.html

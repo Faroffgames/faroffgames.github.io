@@ -33,18 +33,56 @@
     });
   </script>
 
-  <script> window.addEventListener('resize', function() {
-    const borderWidth = window.outerWidth - window.innerWidth;
-    const topBorderWidth = window.outerHeight - window.innerHeight - borderWidth;
-    const bottomBorderWidth = borderWidth - topBorderWidth;
+  //<script> window.addEventListener('resize', function() {
+  /  const borderWidth = window.outerWidth - window.innerWidth;
+   / const topBorderWidth = window.outerHeight - window.innerHeight - borderWidth;
+    /const bottomBorderWidth = borderWidth - topBorderWidth;
     const outerWidth = window.outerWidth;
-  
-    if (borderWidth > 200 || topBorderWidth > 200 || bottomBorderWidth > 200 || outerWidth > 200) {
+  /
+   / if (borderWidth > 200 || topBorderWidth > 200 || bottomBorderWidth > 200 || outerWidth > 200) {
       location.replace("https://far0ffgames.github.io/FullScreen.html"); //trust it takes to 404
     }
   });
     </script>
 </head>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .CENy8b {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 0; /* Change to 0 to make it square */
+    transition: transform 0.3s ease;
+  }
+
+  .CENy8b:hover {
+    transform: scale(1.2);
+  }
+
+  .CENy8b img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="CENy8b">
+  <img src="your-image.jpg" alt="Image">
+</div>
+
+</body>
+</html>
+
+
+
+
+
 
 
 <html lang="en"><head><!-- Google tag (gtag.js) -->

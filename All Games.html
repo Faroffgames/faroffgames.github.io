@@ -46,7 +46,6 @@
 
 
 
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-Frame-Options" content="DENY">
@@ -101,6 +100,47 @@
 </style>
 </head>
 <body>
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Current Time Display</title>
+      <style>
+          #current-time {
+              position: absolute;
+              top: 0.6%;
+              left: 91%;
+              transform: translate(-50%, -50%);
+              text-align: center;
+              font-size: 24px;
+          }
+      </style>
+  </head>
+  <body>
+      <p id="current-time"></p>
+  
+      <script>
+          function updateClock() {
+              const now = new Date();
+              const hours24 = now.getHours();
+              const hours12 = (hours24 % 12) || 12; // Convert 0 to 12
+              const ampm = hours24 >= 12 ? 'PM' : 'AM';
+              const minutes = String(now.getMinutes()).padStart(2, '0');
+              const seconds = String(now.getSeconds()).padStart(2, '0');
+              const currentTime = `${hours12}:${minutes}:${seconds} ${ampm}`;
+              document.getElementById('current-time').textContent = currentTime;
+          }
+  
+          // Update the clock every second
+          setInterval(updateClock, 1000);
+  
+          // Initial call to display the time
+          updateClock();
+      </script>
+  </body>
+  </html>
+  
 
 
 <html lang="en"><head><!-- Google tag (gtag.js) -->

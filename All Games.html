@@ -145,65 +145,6 @@
   
 
 
-  <!DOCTYPE html>
-  <html>
-  <head>
-      <style>
-          .back-to-top {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              opacity: 0;
-              visibility: hidden;
-              font-size: 24px;
-              background-color: #333;
-              color: white;
-              padding: 10px;
-              border-radius: 50%;
-              cursor: pointer;
-              transition: opacity 0.3s, visibility 0.3s;
-          }
-  
-          .back-to-top a {
-              text-decoration: none;
-              color: white;
-          }
-      </style>
-  </head>
-  <body>
-      
-      <!-- Back to Top button -->
-      <div id="backToTopBtn" class="back-to-top">
-          <a href="#" aria-label="Back to Top">&#9650;</a>
-      </div>
-  
-      <script>
-          var backToTopBtn = document.getElementById("backToTopBtn");
-  
-          window.addEventListener("scroll", function() {
-              if (window.pageYOffset > 300) { // Adjust the value as needed
-                  backToTopBtn.style.opacity = "1";
-                  backToTopBtn.style.visibility = "visible";
-              } else {
-                  backToTopBtn.style.opacity = "0";
-                  backToTopBtn.style.visibility = "hidden";
-              }
-          });
-  
-          backToTopBtn.addEventListener("click", function(e) {
-              e.preventDefault();
-              scrollToTop();
-          });
-  
-          function scrollToTop() {
-              window.scrollTo({
-                  top: 0,
-                  behavior: "smooth"
-              });
-          }
-      </script>
-  </body>
-  </html>
   
   
 

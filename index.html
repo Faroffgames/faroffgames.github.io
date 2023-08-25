@@ -13,22 +13,153 @@
       padding: 20px;
       text-align: center;
       font-size: 18px;
-      font-family: 'Roboto', sans-serif; /* Use Roboto font */
-      font-weight: bold; /* Use bold font weight */
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+    }
+
+    /* Style the circular button */
+    .form-button {
+      background-color: black;
+      border: none;
+      color: #ffcc00;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 9px;
+      right: 20px; /* Adjust the right position */
+      cursor: pointer;
+      z-index: 98;
+    }
+
+    /* Add a hover effect for the circular button */
+    .form-button:hover {
+      background-color: #333;
+      color: white;
+      transition: background-color 0s, color 0.3s;
+    }
+
+    /* Style the question mark icon */
+    .question-mark {
+      font-size: 18px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+    }
+
+    /* Additional styles for the social dropdown */
+    .social-dropdown-container {
+      position: absolute;
+      top: 9px;
+      right: 70px; /* Adjust the right position */
+      display: inline-block;
+      z-index: 98;
+    }
+
+    .social-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .social-dropdown button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 98;
+    }
+
+    /* Add a hover effect for social dropdown button */
+    .social-dropdown button:hover {
+      background-color: #ffcc00;
+      transition: background-color 0.3s;
+    }
+
+    .social-dropdown button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 98;
+    }
+
+    .social-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 160px;
+      box-shadow: -8px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 98;
+      border-radius: 5px;
+      right: 100%;
+    }
+
+    .social-dropdown button:focus + .social-dropdown-content,
+    .social-dropdown-content:hover {
+      display: block;
+    }
+
+    .social-dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .social-dropdown-content a:hover {
+      background-color: #f1f1f1;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const socialButton = document.querySelector('.social-dropdown button');
+      const socialDropdown = document.querySelector('.social-dropdown-content');
+
+      function toggleDropdown() {
+        socialDropdown.style.display = socialDropdown.style.display === 'block' ? 'none' : 'block';
+      }
+
+      socialButton.addEventListener('click', toggleDropdown);
+
+      document.addEventListener('click', function(event) {
+        if (!socialButton.contains(event.target) && !socialDropdown.contains(event.target)) {
+          socialDropdown.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </head>
 <body>
-  <div class="announcement-banner" id="announcementBanner">
-   Added More Games + Better Looking Page
+  <div class="social-dropdown-container">
+    <div class="social-dropdown">
+      <button>
+        <img src="yt.png" alt="YouTube Logo">
+      </button>
+      <div class="social-dropdown-content">
+        <a href="https://www.tiktok.com/@far0ffgames">TikTok</a>
+        <a href="https://www.youtube.com/@Far0ffGames">YouTube</a>
+      </div>
+    </div>
   </div>
+
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFkvvE5GIwjNBouuOzvtrCWQj5v5RAy5liOACwetvCsy-28A/viewform?usp=sf_link" target="_blank" class="form-button">
+    <span class="question-mark">Add</span>
+  </a>
+
+  <div class="announcement-banner" id="announcementBanner">
+    Added More Games + Better Looking Page
+  </div>
+</body>
+</html>
 
 </body>
 </html>
 
-
-
-<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <style>
@@ -99,7 +230,7 @@
           #current-time {
               position: absolute;
               top: 0.6%;
-              left: 87%;
+              left: 83%;
               transform: translate(-50%, -50%);
               text-align: center;
               font-size: 24px;

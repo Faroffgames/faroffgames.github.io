@@ -46,7 +46,7 @@
 
     /* Style the question mark icon */
     .question-mark {
-      font-size: 18px;
+      font-size: 24px;
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
     }
@@ -66,6 +66,8 @@
     }
 
     .social-dropdown button {
+      background-color: black;
+      color: #ffcc00;
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -73,19 +75,22 @@
       cursor: pointer;
       overflow: hidden;
       z-index: 98;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Adjust font size for social dropdown button */
+    .social-dropdown button {
+      font-size: 11px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 450;
     }
 
     /* Add a hover effect for social dropdown button */
     .social-dropdown button:hover {
-      background-color: #ffcc00;
+      background-color: #333;
       transition: background-color 0.3s;
-    }
-
-    .social-dropdown button img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 98;
     }
 
     .social-dropdown-content {
@@ -138,7 +143,7 @@
   <div class="social-dropdown-container">
     <div class="social-dropdown">
       <button>
-        <img src="yt.png" alt="YouTube Logo">
+        Socials
       </button>
       <div class="social-dropdown-content">
         <a href="https://www.tiktok.com/@far0ffgames">TikTok</a>
@@ -148,7 +153,7 @@
   </div>
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFkvvE5GIwjNBouuOzvtrCWQj5v5RAy5liOACwetvCsy-28A/viewform?usp=sf_link" target="_blank" class="form-button">
-    <span class="question-mark">Add</span>
+    <span class="question-mark">?</span>
   </a>
 
   <div class="announcement-banner" id="announcementBanner">

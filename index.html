@@ -1,4 +1,17 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Far0ff Games</title>
+    <link rel="icon" href="Far0ffGames.github.io/d036f4f9c61705d690b26ae5d73933e8.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Your webpage content here -->
+</body>
+</html>
+
 
 
 <!DOCTYPE html>
@@ -376,11 +389,24 @@ document.getElementById("third-button").addEventListener("click", function() {
 </head>
 <body>
  
-
   <script>
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+      const expires = new Date();
+      expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+      document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+    }
+  
+    // Function to get the value of a cookie
+    function getCookie(name) {
+      const cookieValue = document.cookie.match(`(^|;)\\s*${name}\\s*=\\s*([^;]+)`);
+      return cookieValue ? cookieValue.pop() : '';
+    }
+  
     const button = document.getElementById('third-button');
     const stylesOffClass = 'styles-off';
-
+    const cookieName = 'stylePreferences';
+  
     button.addEventListener('click', () => {
       const elementsToToggle = [
         '.Rn3Z1b',
@@ -394,15 +420,38 @@ document.getElementById("third-button").addEventListener("click", function() {
         '.j5pSsc',
         '.db35Fc'
       ];
-
+  
       elementsToToggle.forEach(selector => {
         const elements = document.querySelectorAll(selector);
         elements.forEach(element => {
           element.classList.toggle(stylesOffClass);
         });
       });
+  
+      // Save preferences to cookie
+      const stylePreferences = elementsToToggle.map(selector => {
+        const elements = document.querySelectorAll(selector);
+        const isActive = elements[0].classList.contains(stylesOffClass) ? 'off' : 'on';
+        return `${selector}=${isActive}`;
+      }).join(';');
+      setCookie(cookieName, stylePreferences, 365); // Expires in 30 days
     });
+  
+    // Restore preferences from cookie
+    const savedPreferences = getCookie(cookieName);
+    if (savedPreferences) {
+      savedPreferences.split(';').forEach(pref => {
+        const [selector, isActive] = pref.split('=');
+        const elements = document.querySelectorAll(selector);
+        if (isActive === 'off') {
+          elements.forEach(element => {
+            element.classList.add(stylesOffClass);
+          });
+        }
+      });
+    }
   </script>
+  
 </body>
 </html>
 </style>

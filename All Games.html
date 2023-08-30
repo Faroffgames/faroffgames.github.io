@@ -395,78 +395,72 @@ document.getElementById("third-button").addEventListener("click", function() {
 </head>
 <body>
 
-
-<script>
-  const button = document.getElementById('third-button');
-  const stylesOffClass = 'styles-off';
-
-  // Load the initial state from cookies
-  const savedState = getCookie('stylesOffState');
-  if (savedState) {
-    const initialState = JSON.parse(savedState);
-    applyState(initialState);
-  }
-
-  button.addEventListener('click', () => {
-    const elementsToToggle = [
-      '.Rn3Z1b',
-      '.yaqOZd',
-      '.mYVXT',
-      '.C9DxTc',
-      '.Rn3Z1b.C9DxTc',
-      '._',
-      '.LS81yb',
-      '.VICjCf',
-      '.j5pSsc',
-      '.db35Fc'
-    ];
-
-    elementsToToggle.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(element => {
-        element.classList.toggle(stylesOffClass);
-      });
-    });
-
-    // Save the current state to cookies
-    const currentState = getCurrentState();
-    setCookie('stylesOffState', JSON.stringify(currentState));
-  });
-
-  function getCurrentState() {
-    const currentState = {};
-    elementsToToggle.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(element => {
-        currentState[element.id] = element.classList.contains(stylesOffClass);
-      });
-    });
-    return currentState;
-  }
-
-  function applyState(state) {
-    for (const id in state) {
-      const element = document.getElementById(id);
-      if (element) {
-        if (state[id]) {
-          element.classList.add(stylesOffClass);
-        } else {
-          element.classList.remove(stylesOffClass);
-        }
-      }
+ <script>
+    // Function to check if a cookie exists
+    function getCookie(name) {
+      const value = "; " + document.cookie;
+      const parts = value.split("; " + name + "=");
+      if (parts.length === 2) return parts.pop().split(";").shift();
     }
-  }
 
-  // Cookie helper functions
-  function setCookie(name, value) {
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/`;
-  }
+    // Function to set a cookie
+    function setCookie(name, value) {
+      document.cookie = `${name}=${value}; path=/`;
+    }
 
-  function getCookie(name) {
-    const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`));
-    return match ? decodeURIComponent(match[1]) : null;
-  }
-</script>
+    const button = document.getElementById('third-button');
+    const stylesOffClass = 'styles-off';
+
+    // Check the saved preference on page load
+    if (getCookie('stylesOff') === 'true') {
+      const elementsToToggle = [
+        '.Rn3Z1b',
+        '.yaqOZd',
+        '.mYVXT',
+        '.C9DxTc',
+        '.Rn3Z1b.C9DxTc',
+        '._',
+        '.LS81yb',
+        '.VICjCf',
+        '.j5pSsc',
+        '.db35Fc'
+      ];
+
+      elementsToToggle.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+          element.classList.add(stylesOffClass);
+        });
+      });
+    }
+
+    button.addEventListener('click', () => {
+      const elementsToToggle = [
+        '.Rn3Z1b',
+        '.yaqOZd',
+        '.mYVXT',
+        '.C9DxTc',
+        '.Rn3Z1b.C9DxTc',
+        '._',
+        '.LS81yb',
+        '.VICjCf',
+        '.j5pSsc',
+        '.db35Fc'
+      ];
+
+      elementsToToggle.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+          element.classList.toggle(stylesOffClass);
+        });
+      });
+
+      // Save the preference in a cookie
+      const currentPreference = getCookie('stylesOff') === 'true';
+      setCookie('stylesOff', !currentPreference);
+    });
+  </script>
+</body>
 
 </body>
 </html>

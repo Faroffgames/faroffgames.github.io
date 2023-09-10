@@ -626,6 +626,7 @@ document.getElementById("third-button").addEventListener("click", function() {
   
 
   </body>
+  
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -645,7 +646,7 @@ document.getElementById("third-button").addEventListener("click", function() {
               background: #FCBA7F;
           }
           .wrapper {
-              position: fixed;
+              position: absolute; /* Change to "absolute" */
               bottom: 30px;
               left: 30px;
               max-width: 365px;
@@ -655,9 +656,12 @@ document.getElementById("third-button").addEventListener("click", function() {
               box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
               text-align: center;
               z-index: 999;
+          }
+          .wrapper.hide {
               opacity: 0;
               pointer-events: none;
-              transition: opacity 0.5s ease-in-out;
+              transform: scale(0.8);
+              transition: all 0.3s ease;
           }
           ::selection {
               color: #fff;
@@ -706,7 +710,7 @@ document.getElementById("third-button").addEventListener("click", function() {
       </style>
   </head>
   <body>
-      <div class="wrapper"> <!-- Remove 'hide' class to initially show the popup -->
+      <div class="wrapper">
           <img src="cookie.png" alt="">
           <div class="content">
               <header>Cookies Consent</header>
@@ -719,20 +723,12 @@ document.getElementById("third-button").addEventListener("click", function() {
   
       <script>
           const cookieBox = document.querySelector(".wrapper");
-  
-          // Function to show the cookie box after 7 seconds
-          setTimeout(function() {
-              cookieBox.style.opacity = "1"; // Show the cookie box
-              cookieBox.style.pointerEvents = "auto"; // Make it clickable
-          }, 7000); // 7 seconds
-  
-          const acceptBtn = document.querySelector(".wrapper button");
+          const acceptBtn = cookieBox.querySelector("button");
   
           acceptBtn.onclick = () => {
               // Setting cookie for 1 month, after one month it'll be expired automatically
               document.cookie = "CookieBy=CodingNepal; max-age=" + 60 * 60 * 24 * 30;
-              cookieBox.style.opacity = "0"; // Hide cookie box when the button is clicked
-              cookieBox.style.pointerEvents = "none"; // Disable clicks
+              cookieBox.classList.add("hide"); // Hide cookie box when the button is clicked
           };
   
           // Check if the cookie "CookieBy" exists
@@ -740,13 +736,11 @@ document.getElementById("third-button").addEventListener("click", function() {
   
           // If the cookie is not set, show the cookie box
           if (!checkCookie) {
-              cookieBox.style.opacity = "1";
-              cookieBox.style.pointerEvents = "auto";
+              cookieBox.classList.remove("hide");
           }
       </script>
   </body>
   </html>
-  
   
   
   

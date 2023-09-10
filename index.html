@@ -422,7 +422,7 @@ document.getElementById("third-button").addEventListener("click", function() {
       <style>
           #current-time {
               position: absolute;
-              top: 0.6%;
+              top: 3.5%;
               left: 78%;
               transform: translate(-50%, -50%);
               text-align: center;
@@ -456,173 +456,300 @@ document.getElementById("third-button").addEventListener("click", function() {
   </body>
   </html>
   
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+  
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      
+      .popup {
+        background-color: rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        padding: 30px; /* Increased padding for a bigger box */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255,204,0,0.9);
+        max-width: 500px; /* Increased width for a bigger box */
+        text-align: center; /* Center all text in the popup */
+        color: white;
+        position: relative;
+      }
+  
+      .popup h2 {
+        margin-bottom: 10px;
+      }
+      
+      .popup p {
+        margin: 10px 0;
+      }
+      
+      #closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      
+      #bulletPoints {
+        text-align: left; /* Reset text alignment to left */
+        margin-top: 15px;
+        padding-left: 1em;
+      }
+      
+      #bulletPoints li {
+        list-style-type: disc;
+        margin-bottom: 5px;
+        text-align: left;
+        padding-left: 0.5em;
+      }
+      
+      /* Add styles for the DMCA takedown button */
+      #dmcaBtn {
+        background-color: #626161;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      
+      #dmcaBtn:hover {
+        background-color: #adadad;
+      }
+      
+      .popup {
+        /* ... Your existing popup styles ... */
+        position: relative;
+        animation: rainbowGlow 5s linear infinite;
+      }
+  
+      @keyframes rainbowGlow {
+        0%, 100% {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 204, 0, 0.9);
+        }
+        25% {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px red;
+        }
+        50% {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px orange;
+        }
+        75% {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px yellow;
+        }
+      }
+    </style>
+    <title>Update</title>
+  </head>
+  <body>
+    <div class="overlay" id="overlay">
+      <div class="popup">
+        <button id="closeBtn">&times;</button>
+        <h2>Website Update</h2>
+        <p>8/27-29/23</p>
+        <ul id="bulletPoints">
+          <li>Fall Guys</li>
+          <li>Paper.io</li>
+          <li>Fruit Ninja</li>
+          <li>Cluster Rush</li>
+          <li>Dark & Light Mode</li>
+          <li>Question Mark for Bug Reports and Game Requests</span></li>
+          <li>Paper Minecraft</li>
+          <li>Among Us</li>
+          <li>Snowball.io</li>
+          <li>Helix Jump</li>
+        </ul>
+        
+        <!-- Add the DMCA takedown button link here -->
+        <a id="dmcaBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSf1clh3VZ18D_kgNTJQbGI-QCjF5aZiuelv_4CHm5HHksckLA/viewform?usp=sf_link" target="_blank">DMCA Takedown</a>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const overlay = document.getElementById("overlay");
+        const closeBtn = document.getElementById("closeBtn");
+        const cookieName = "announcementPopupShown";
+  
+        if (!getCookie(cookieName)) {
+          overlay.style.display = "flex";
+        }
+  
+        closeBtn.addEventListener("click", function() {
+          overlay.style.display = "none";
+          setCookie(cookieName, true, 3);
+        });
+  
+        function setCookie(name, value, days) {
+          const expires = new Date();
+          expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+          document.cookie = name + "=" + value + ";expires=" + expires.toUTCString();
+        }
+  
+        function getCookie(name) {
+          const cookieArr = document.cookie.split(";");
+          for (let i = 0; i < cookieArr.length; i++) {
+            const cookiePair = cookieArr[i].split("=");
+            if (cookiePair[0].trim() === name) {
+              return cookiePair[1];
+            }
+          }
+          return null;
+        }
+      });
+    </script>
+  </body>
+  </html>
 
+  
 
+  </body>
   
   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SHS Games</title>
-    <!-- Your other meta tags, scripts, and styles -->
-</head>
-<body style="overflow-x: hidden; margin: 0;">
-    <!-- Your content here -->
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    
-    .popup {
-  background-color: rgba(0, 0, 0, 1);
-  border-radius: 20px;
-  padding: 30px; /* Increased padding for a bigger box */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255,204,0,0.9);
-  max-width: 500px; /* Increased width for a bigger box */
-  text-align: center;
-  color: white;
-  position: relative;
-}
-
-    .popup h2 {
-      margin-bottom: 10px;
-    }
-    
-    .popup p {
-      margin: 10px 0;
-    }
-    
-    #closeBtn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 18px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    
-    #bulletPoints {
-      text-align: left; /* Reset text alignment to left */
-      margin-top: 15px;
-      padding-left: 1em;
-    }
-    
-    #bulletPoints li {
-      list-style-type: disc;
-      margin-bottom: 5px;
-      text-align: left;
-      padding-left: 0.5em;
-    }
-    .popup {
-      /* ... Your existing popup styles ... */
-      position: relative;
-      animation: rainbowGlow 5s linear infinite;
-    }
-
-    @keyframes rainbowGlow {
-      0%, 100% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 204, 0, 0.9);
-      }
-      25% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px red;
-      }
-      50% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px orange;
-      }
-      75% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px yellow;
-      }
-    }
-  </style>
-  <title>Update</title>
-</head>
-<body>
-  <div class="overlay" id="overlay">
-    <div class="popup">
-      <button id="closeBtn">&times;</button>
-      <h2>Website Update</h2>
-      <p>8/27-29/23</p>
-      <ul id="bulletPoints">
-        
-    <li>Fall Guys</li>
-    <li>Paper.io</li>
-    <li>Fruit Ninja</li>
-    <li>Cluster Rush</li>
-    <li>Dark & Light Mode</li>
-    <li><span style="color: yellow;">Question Mark for Bug Reports and Game Requests</span></li>
-    <li>Paper Minecraft</li>
-    <li><span style="color: yellow;">Among Us</span></li>
-    <li><span style="color: yellow;">Snowball.io</span></li>
-    <li><span style="color: yellow;">Helix Jump</span></li>
-        
-      </ul>
-    </div>
-  </div>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const overlay = document.getElementById("overlay");
-      const closeBtn = document.getElementById("closeBtn");
-      const cookieName = "announcementPopupShown";
-
-      if (!getCookie(cookieName)) {
-        overlay.style.display = "flex";
-      }
-
-      closeBtn.addEventListener("click", function() {
-        overlay.style.display = "none";
-        setCookie(cookieName, true, 3);
-      });
-
-      function setCookie(name, value, days) {
-        const expires = new Date();
-        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString();
-      }
-
-      function getCookie(name) {
-        const cookieArr = document.cookie.split(";");
-        for (let i = 0; i < cookieArr.length; i++) {
-          const cookiePair = cookieArr[i].split("=");
-          if (cookiePair[0].trim() === name) {
-            return cookiePair[1];
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cookie Consent Box | CodingNepal</title>
+      <style>
+          /* Your existing CSS */
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: 'Poppins', sans-serif;
           }
-        }
-        return null;
-      }
-    });
-  </script>
-</body>
-</html>
-  
-  
+          body {
+              background: #FCBA7F;
+          }
+          .wrapper {
+              position: absolute; /* Change to "absolute" */
+              bottom: 30px;
+              left: 30px;
+              max-width: 365px;
+              background: #fff;
+              padding: 25px 25px 30px 25px;
+              border-radius: 15px;
+              box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+              text-align: center;
+              z-index: 999;
+          }
+          .wrapper.hide {
+              opacity: 0;
+              pointer-events: none;
+              transform: scale(0.8);
+              transition: all 0.3s ease;
+          }
+          ::selection {
+              color: #fff;
+              background: #FCBA7F;
+          }
+          .wrapper img {
+              max-width: 90px;
+          }
+          .content header {
+              font-size: 25px;
+              font-weight: 600;
+          }
+          .content {
+              margin-top: 10px;
+          }
+          .content p {
+              color: #858585;
+              margin: 5px 0 20px 0;
+          }
+          .content .buttons {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+          .buttons button {
+              padding: 10px 20px;
+              border: none;
+              outline: none;
+              color: #fff;
+              font-size: 16px;
+              font-weight: 500;
+              border-radius: 5px;
+              background: #FCBA7F;
+              cursor: pointer;
+              transition: all 0.3s ease;
+          }
+          .buttons button:hover {
+              transform: scale(0.97);
+          }
+          .buttons .item {
+              margin: 0 10px;
+          }
+          .buttons a {
+              color: #FCBA7F;
+          }
+      </style>
+  </head>
+  <body>
+    <div class="wrapper">
+        <img src="cookie.png" alt="">
+        <div class="content">
+            <header>Cookies Consent</header>
+            <p>This website uses cookies to ensure you get the best experience on our website.</p>
+            <div class="buttons">
+                <button class="item" id="acceptBtn">I understand</button>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        const cookieBox = document.querySelector(".wrapper");
+        const acceptBtn = document.getElementById("acceptBtn");
+
+        acceptBtn.onclick = () => {
+            // Setting cookie for 1 month, after one month it'll be expired automatically
+            document.cookie = "CookieBy=CodingNepal; max-age=" + 60 * 60 * 24 * 30;
+            cookieBox.classList.add("hide"); // Hide cookie box when the button is clicked
+        };
+
+        // Function to check if the cookie "CookieBy" exists
+        function checkCookie() {
+            return document.cookie.includes("CookieBy=CodingNepal");
+        }
+
+        // If the cookie is not set and the "I understand" button was not clicked, show the cookie box
+        if (!checkCookie()) {
+            cookieBox.classList.remove("hide");
+        } else {
+            // If the cookie is set, hide the cookie box
+            cookieBox.classList.add("hide");
+        }
+    </script>
+  </body>
+  </html>
+  
+  
+  
+  
 <html lang="en"><head><!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8L5KVENXN"></script>
 <script>

@@ -710,35 +710,40 @@ document.getElementById("third-button").addEventListener("click", function() {
       </style>
   </head>
   <body>
-      <div class="wrapper">
-          <img src="cookie.png" alt="">
-          <div class="content">
-              <header>Cookies Consent</header>
-              <p>This website uses cookies to ensure you get the best experience on our website.</p>
-              <div class="buttons">
-                  <button class="item">I understand</button>
-              </div>
-          </div>
-      </div>
-  
-      <script>
-          const cookieBox = document.querySelector(".wrapper");
-          const acceptBtn = cookieBox.querySelector("button");
-  
-          acceptBtn.onclick = () => {
-              // Setting cookie for 1 month, after one month it'll be expired automatically
-              document.cookie = "CookieBy=CodingNepal; max-age=" + 60 * 60 * 24 * 30;
-              cookieBox.classList.add("hide"); // Hide cookie box when the button is clicked
-          };
-  
-          // Check if the cookie "CookieBy" exists
-          const checkCookie = document.cookie.includes("CookieBy=CodingNepal");
-  
-          // If the cookie is not set, show the cookie box
-          if (!checkCookie) {
-              cookieBox.classList.remove("hide");
-          }
-      </script>
+    <div class="wrapper">
+        <img src="cookie.png" alt="">
+        <div class="content">
+            <header>Cookies Consent</header>
+            <p>This website uses cookies to ensure you get the best experience on our website.</p>
+            <div class="buttons">
+                <button class="item" id="acceptBtn">I understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cookieBox = document.querySelector(".wrapper");
+        const acceptBtn = document.getElementById("acceptBtn");
+
+        acceptBtn.onclick = () => {
+            // Setting cookie for 1 month, after one month it'll be expired automatically
+            document.cookie = "CookieBy=CodingNepal; max-age=" + 60 * 60 * 24 * 30;
+            cookieBox.classList.add("hide"); // Hide cookie box when the button is clicked
+        };
+
+        // Function to check if the cookie "CookieBy" exists
+        function checkCookie() {
+            return document.cookie.includes("CookieBy=CodingNepal");
+        }
+
+        // If the cookie is not set and the "I understand" button was not clicked, show the cookie box
+        if (!checkCookie()) {
+            cookieBox.classList.remove("hide");
+        } else {
+            // If the cookie is set, hide the cookie box
+            cookieBox.classList.add("hide");
+        }
+    </script>
   </body>
   </html>
   

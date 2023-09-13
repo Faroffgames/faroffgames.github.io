@@ -2,6 +2,7 @@
 <html>
 <head>
     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
         /* Style for the notification container */
         .notification {
             position: fixed;
@@ -12,7 +13,9 @@
             padding: 20px; /* Increased vertical padding */
             opacity: 0; /* Initially transparent */
             border-radius: 5px; /* Rounded corners */
-            transition: opacity 0.5s ease-in-out; /* Transition for the opacity property */
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transitions for opacity and transform properties */
+            transform: translateY(100%); /* Initially off-screen */
+            font-family: 'Roboto', sans-serif; 
         }
 
         /* Style for the notification image */
@@ -25,28 +28,62 @@
     </style>
 </head>
 <body>
-    <!-- Notification container -->
-    <div class="notification" id="notification">
-        <img src="red2.png" alt="Notification Image">
-        <span>Game added</span>
-    </div>
-
-    <!-- JavaScript to trigger the fade-in effect -->
+    <!-- JavaScript to handle notifications -->
     <script>
-        // Function to show the notification with a fade-in effect
-        function showNotification() {
-            var notification = document.getElementById("notification");
-            notification.style.opacity = "1";
+        // Notification queue
+        var notificationQueue = [];
+
+        // Function to show a notification with a fade-in effect
+        function showNotification(message, imageUrl) {
+            var notification = document.createElement("div");
+            notification.classList.add("notification");
+            
+            var image = document.createElement("img");
+            image.src = imageUrl;
+            
+            var span = document.createElement("span");
+            span.textContent = message;
+
+            notification.appendChild(image);
+            notification.appendChild(span);
+            
+            document.body.appendChild(notification);
+            
+            // Triggering the fade-in effect
+            setTimeout(function() {
+                notification.style.opacity = "1";
+                notification.style.transform = "translateY(0)";
+            }, 100); // Delay for smoother effect
+            
+            // Hide the notification after a certain time period
+            setTimeout(function() {
+                notification.style.opacity = "0";
+                notification.style.transform = "translateY(100%)";
+                
+                // Remove the notification element from the DOM after animation
+                setTimeout(function() {
+                    notification.remove();
+
+                    // Check if there are more notifications in the queue
+                    if (notificationQueue.length > 0) {
+                        var nextNotification = notificationQueue.shift();
+                        showNotification(nextNotification.message, nextNotification.imageUrl);
+                    }
+                }, 500); // Adjust the time as needed
+            }, 5000); // This will hide the notification after 5 seconds (5000 milliseconds)
         }
 
-        // Call the showNotification function when needed (e.g., after adding a game)
-        showNotification();
-        
-        // You can hide the notification after a certain time period if needed
-        setTimeout(function() {
-            var notification = document.getElementById("notification");
-            notification.style.opacity = "0";
-        }, 5000); // This will hide the notification after 5 seconds (5000 milliseconds)
+        // Add notifications to the queue
+        notificationQueue.push({ message: "Bitlife Added | Scroll Down", imageUrl: "bit.png" });
+        notificationQueue.push({ message: "Monkey Mart Added | Scroll Down", imageUrl: "monkey-mart.jpg" });
+
+       
+
+        // Display the first notification
+        if (notificationQueue.length > 0) {
+            var firstNotification = notificationQueue.shift();
+            showNotification(firstNotification.message, firstNotification.imageUrl);
+        }
     </script>
 </body>
 </html>

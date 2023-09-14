@@ -1,3 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkeyMart</title>
+    <style>
+        /* Styles for the popup container */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        /* Styles for the popup */
+        .popup {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styles for the "I understand" button */
+        .popup-button {
+            padding: 10px 20px;
+            background-color: #36a1d3; /* Slightly dark red */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="popup-container" id="popup">
+    <div class="popup">
+        <p>This game is down right now. Please come back tomorrow, (9/14) and it will be fixed.</p>
+        <button class="popup-button" onclick="closePopup()">I understand</button>
+    </div>
+</div>
+
+<script>
+    // Function to display the popup
+    function showPopup() {
+        document.getElementById('popup').style.display = 'flex';
+    }
+
+    // Function to close the popup
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    // Show the popup when the page loads
+    window.onload = showPopup;
+</script>
+
+<!-- The rest of your HTML content goes here -->
+
+</body>
+</html>
 
 <!DOCTYPE html><html lang="en"><head>  <script>window.addEventListener('resize', function() {
   const borderWidth = window.outerWidth - window.innerWidth;

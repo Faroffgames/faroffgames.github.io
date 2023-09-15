@@ -565,7 +565,7 @@ document.getElementById("third-button").addEventListener("click", function() {
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cookie Consent Box | CodingNepal</title>
+      <title>Cookies and TOS/Privacy Policy Consent</title>
       <style>
           /* Your existing CSS */
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -604,7 +604,7 @@ document.getElementById("third-button").addEventListener("click", function() {
               max-width: 90px;
           }
           .content header {
-              font-size: 25px;
+              font-size: 20px; /* Adjust font size */
               font-weight: 600;
           }
           .content {
@@ -616,8 +616,8 @@ document.getElementById("third-button").addEventListener("click", function() {
           }
           .content .buttons {
               display: flex;
+              flex-direction: column; /* Change to column layout */
               align-items: center;
-              justify-content: center;
           }
           .buttons button {
               padding: 10px 20px;
@@ -635,53 +635,67 @@ document.getElementById("third-button").addEventListener("click", function() {
               transform: scale(0.97);
           }
           .buttons .item {
-              margin: 0 10px;
+              margin: 10px 0; /* Adjust margin */
           }
           .buttons a {
               color: #FCBA7F;
           }
+          /* New styles for the highlighted text and links */
+          .policy-link {
+              color: #FCBA7F;
+              font-weight: bold;
+              margin-top: 10px; /* Adjust margin */
+          }
+          .policy-link a {
+              text-decoration: underline;
+              margin: 0 5px;
+          }
+          .policy-link a:hover {
+              text-decoration: none;
+          }
       </style>
   </head>
   <body>
-    <div class="wrapper">
-        <img src="cookie.png" alt="">
-        <div class="content">
-            <header>Cookies Consent</header>
-            <p>This website uses cookies to ensure you get the best experience on our website.</p>
-            <div class="buttons">
-                <button class="item" id="acceptBtn">I understand</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const cookieBox = document.querySelector(".wrapper");
-        const acceptBtn = document.getElementById("acceptBtn");
-
-        acceptBtn.onclick = () => {
-            // Setting cookie for 1 month, after one month it'll be expired automatically
-            document.cookie = "CookieBy=CodingNepal; max-age=" + 60 * 60 * 24 * 30;
-            cookieBox.classList.add("hide"); // Hide cookie box when the button is clicked
-        };
-
-        // Function to check if the cookie "CookieBy" exists
-        function checkCookie() {
-            return document.cookie.includes("CookieBy=CodingNepal");
-        }
-
-        // If the cookie is not set and the "I understand" button was not clicked, show the cookie box
-        if (!checkCookie()) {
-            cookieBox.classList.remove("hide");
-        } else {
-            // If the cookie is set, hide the cookie box
-            cookieBox.classList.add("hide");
-        }
-    </script>
+  <div class="wrapper">
+      <img src="cookie.png" alt="">
+      <div class="content">
+          <header>Cookies and TOS/Privacy Policy Consent</header>
+          <p>This website uses cookies to ensure you get the best experience on our website.</p>
+          <!-- Highlighted text and links to Privacy Policy and Terms of Service -->
+          <p class="policy-link">
+              By using this website, you agree to our <a href="https://far0ffgames.github.io/pp.html" target="_blank">Privacy Policy</a> and <a href="https://far0ffgames.github.io/tos.html" target="_blank">Terms of Service</a>.
+          </p>
+          <div class="buttons">
+              <button class="item" id="acceptBtn">I understand</button>
+          </div>
+      </div>
+  </div>
+  
+  <script>
+      const cookieBox = document.querySelector(".wrapper");
+      const acceptBtn = document.getElementById("acceptBtn");
+  
+      acceptBtn.onclick = () => {
+          // Setting cookie for 1 month, after one month it'll be expired automatically
+          document.cookie = "CookieBy=CodingNepal; max-age=" + 60 * 60 * 24 * 30;
+          cookieBox.classList.add("hide"); // Hide cookie box when the button is clicked
+      };
+  
+      // Function to check if the cookie "CookieBy" exists
+      function checkCookie() {
+          return document.cookie.includes("CookieBy=CodingNepal");
+      }
+  
+      // If the cookie is not set and the "I understand" button was not clicked, show the cookie box
+      if (!checkCookie()) {
+          cookieBox.classList.remove("hide");
+      } else {
+          // If the cookie is set, hide the cookie box
+          cookieBox.classList.add("hide");
+      }
+  </script>
   </body>
   </html>
-  
-  
-  
   
 <html lang="en"><head><!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8L5KVENXN"></script>

@@ -21,7 +21,7 @@
 
         /* Styles for the popup */
         .popup {
-            background-color: #fff;
+            background-color: #36a1d3; /* Slightly dark red */
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -31,8 +31,8 @@
         /* Styles for the "I understand" button */
         .popup-button {
             padding: 10px 20px;
-            background-color: #36a1d3; /* Slightly dark red */
-            color: #fff;
+            background-color: #fff;
+            color: #36a1d3; /* Slightly dark red */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -43,10 +43,20 @@
 
 <div class="popup-container" id="popup">
     <div class="popup">
-        <p>WARNING: This game does not save, so keep the tab open.</p>
-        <button class="popup-button" onclick="closePopup()">I understand</button>
+        <p>Exciting News! The game now saves your progress.</p>
+        <p>Enjoy the updated and improved experience!</p>
+        <button class="popup-button" onclick="closePopup()">Great!</button>
     </div>
 </div>
+
+<script>
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
 
 <script>
     // Function to display the popup

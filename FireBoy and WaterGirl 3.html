@@ -13,7 +13,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8); /* Darken the background */
             justify-content: center;
             align-items: center;
             z-index: 999;
@@ -21,15 +21,37 @@
 
         /* Styles for the popup */
         .popup {
-            background-color: #fff;
+            background-color: #000; /* Make the popup black */
+            color: #fff; /* White text color */
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8); /* Red glow */
         }
 
         /* Styles for the "I understand" button */
         .popup-button {
+            padding: 10px 20px;
+            background-color: #d9534f; /* Slightly dark red */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Styles for age input */
+        .age-input {
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Styles for age submit button */
+        .age-submit-button {
+            margin-top: 10px;
             padding: 10px 20px;
             background-color: #d9534f; /* Slightly dark red */
             color: #fff;
@@ -44,9 +66,31 @@
 <div class="popup-container" id="popup">
     <div class="popup">
         <p>This game is 17+ Rated, only play if you have parent or guardian permission.</p>
-        <button class="popup-button" onclick="closePopup()">I understand</button>
+        <input type="date" class="age-input" id="birthdate">
+        <button class="age-submit-button" onclick="verifyAge()">Submit</button>
     </div>
 </div>
+
+<script>
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+
+    function verifyAge() {
+        const birthdate = new Date(document.getElementById("birthdate").value);
+        const currentDate = new Date();
+        const age = currentDate.getFullYear() - birthdate.getFullYear();
+
+        if (age >= 17) {
+            closePopup();
+        } else {
+            alert("You must be 17 or older to play this game, if you continue, it is illegal");
+        }
+    }
+</script>
+
+</body>
+</html>
 
 <script>
     // Function to display the popup
